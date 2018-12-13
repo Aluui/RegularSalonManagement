@@ -1,8 +1,8 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Regular_Salon_Management.Models
 {
@@ -24,6 +24,12 @@ namespace Regular_Salon_Management.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<Client> Client { get; set; }
+        public DbSet<Appointment> Appointment { get; set; }
+        public DbSet<Services> Service { get; set; }
+        public DbSet<Products> Product { get; set; }
+
 
         public static ApplicationDbContext Create()
         {
