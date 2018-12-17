@@ -61,9 +61,7 @@ namespace Regular_Salon_Management.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             Services services = db.Service.Find(id);
-
             if (services == null)
             {
                 return HttpNotFound();
