@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Regular_Salon_Management.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Regular_Salon_Management.Models;
 
 namespace Regular_Salon_Management.Controllers
 {
@@ -65,7 +61,9 @@ namespace Regular_Salon_Management.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Services services = db.Service.Find(id);
+
             if (services == null)
             {
                 return HttpNotFound();
