@@ -1,4 +1,5 @@
 ﻿using Regular_Salon_Management.Models;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -49,6 +50,7 @@ namespace Regular_Salon_Management.Controllers
         {
             if (ModelState.IsValid)
             {
+                appointment.Created = DateTime.Now;
                 db.Appointment.Add(appointment);
                 db.SaveChanges();
                 return RedirectToAction("Index");

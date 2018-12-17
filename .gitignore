@@ -7,6 +7,8 @@
 /.vs/Regular Salon Management/v15/.suo
 =======
 /.vs
-
+bin
+obj
+*.suo
 
 >>>>>>> Update .gitignore
