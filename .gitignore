@@ -1,5 +1,7 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-
+\.vs\Regular Salon Management\v15
 /.vs/Regular Salon Management/v15/Server/sqlite3
+/.suo
+
