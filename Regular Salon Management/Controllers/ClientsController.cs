@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Regular_Salon_Management.Controllers
 {
+    [Authorize]
     public class ClientsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
