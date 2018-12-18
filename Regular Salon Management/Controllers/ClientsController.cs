@@ -47,7 +47,7 @@ namespace Regular_Salon_Management.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber")] Client client)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Email,PhoneNumber, ProductId, ServiceId")] Client client)
         {
             if (ModelState.IsValid)
             {
