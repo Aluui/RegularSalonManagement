@@ -3,11 +3,11 @@
 <div *ngFor="let client of clients | async">
   <h3>
     {{ client.first + ' ' + client.last }} -
-    <button
+    <!-- <button
       [routerLink]='/client-details/client.id'
       routerLinkActive=""
     >
       Edit Client
-    </button>
+    </button> -->
   </h3>
 </div>
