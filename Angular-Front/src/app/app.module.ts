@@ -12,6 +12,7 @@ import { ClientsComponent } from './components/clients/clients.component';
 import { AddClientComponent } from './components/clients/add-client/add-client.component';
 import { GetClientComponent } from './components/clients/get-client/get-client.component';
 import { ClientDetailsComponent } from './components/clients/client-details/client-details.component';
+import { AuthGuard } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ClientDetailsComponent } from './components/clients/client-details/clie
     ClientDetailsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -25,6 +25,7 @@ app.get('/', function(req, res, next) {
     .catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
+      console.log(errorCode, errorMessage);
     });
   //res.send(true);
 
