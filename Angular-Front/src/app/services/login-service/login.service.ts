@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,29 +12,17 @@ export class LoginService {
   private authToken: string;
   private uid: string;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/home']);
+    }
+  }
 
   login(email: string, password: string) {
-    const params = new HttpParams({
-      fromObject: { email, password }
-    });
-    this.http.get<any>(this.baseUrl + '/login', { params }).subscribe(
-      arg => {
-        console.log(arg);
-        if (arg != null) {
-          this.authToken = arg.stsTokenManager.accessToken;
-          this.uid = arg.uid;
-          // console.log(this.authToken);
-          this.router.navigate(['/home']);
-        } else {
-          this.router.navigate(['/signup']);
-        }
-      },
-      error => console.log(error)
-    );
+    this.authService.login(email, password);
   }
 
   isAuthenticated() {
-    return Boolean(this.uid);
+    this.authService.isAuthenticated();
   }
 }
