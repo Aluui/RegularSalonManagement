@@ -14,8 +14,8 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string) {
-    let authUID = this.getLocalStorage();
-    //console.log('This will display the auth uid: ', authUID);
+    const authUID = this.getLocalStorage();
+    // console.log('This will display the auth uid: ', authUID);
 
     const params = new HttpParams({
       fromObject: { email, password }
