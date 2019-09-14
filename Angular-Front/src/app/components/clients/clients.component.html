@@ -2,12 +2,17 @@
 
 <nav>
   <li>
-    <a
+    <button
       class="nav-link"
       [routerLink]="['/clients/add-client']"
       routerLinkActive=""
-      >Add New Client</a
     >
+      Add New Client
+    </button>
+  </li>
+
+  <li>
+    <button class="nav-link" (click)="signout()">Signout</button>
   </li>
   <!-- <li>
     <a
