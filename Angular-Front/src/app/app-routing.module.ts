@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { AddClientComponent } from './components/clients/add-client/add-client.component';
 import { ClientDetailsComponent } from './components/clients/client-details/client-details.component';
+import { AuthGuard } from './guards/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -18,19 +19,23 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'clients',
-    component: ClientsComponent
+    component: ClientsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'clients/add-client',
-    component: AddClientComponent
+    component: AddClientComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'clients/client-details/:id',
-    component: ClientDetailsComponent
+    component: ClientDetailsComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

@@ -32,4 +32,8 @@ export class LoginService {
       error => console.log(error)
     );
   }
+
+  isAuthenticated() {
+    return Boolean(this.uid);
+  }
 }
