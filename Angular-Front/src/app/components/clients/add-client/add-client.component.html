@@ -1,0 +1,30 @@
+<p>add-client works!</p>
+
+<form (submit)="formSubmitted()">
+  <input
+    type="text"
+    [(ngModel)]="firstName"
+    name="firstName"
+    placeholder="First Name"
+  />
+  <input
+    type="text"
+    [(ngModel)]="lastName"
+    name="lastName"
+    placeholder="Last Name"
+  />
+  <input type="text" [(ngModel)]="DOB" name="DOB" placeholder="(MM/DD/YYYY)" />
+  <input
+    type="text"
+    [(ngModel)]="phoneNumber"
+    name="phoneNumber"
+    placeholder="format: 222-333-4444"
+  />
+  <input
+    type="button"
+    [routerLink]="['/clients']"
+    routerLinkActive="router-link-active"
+    value="Cancel"
+  />
+  <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,19 @@
+<p>signup works!</p>
+
+<form (submit)="formSubmitted()">
+  <input type="text" [(ngModel)]="name" name="name" placeholder="Name" />
+  <input type="text" [(ngModel)]="email" name="email" placeholder="Email" />
+  <input
+    type="password"
+    [(ngModel)]="password"
+    name="password"
+    placeholder="password"
+  />
+  <input
+    type="text"
+    [(ngModel)]="phoneNumber"
+    name="phoneNumber"
+    placeholder="format: +12223334444"
+  />
+  <button type="submit">Submit</button>
+</form>
