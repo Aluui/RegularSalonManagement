@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class LoginService {
   baseUrl = environment.baseUrl;
   private authToken: string;
+  private uid: string;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -21,7 +22,8 @@ export class LoginService {
         console.log(arg);
         if (arg != null) {
           this.authToken = arg.stsTokenManager.accessToken;
-          console.log(this.authToken);
+          this.uid = arg.uid;
+          // console.log(this.authToken);
           this.router.navigate(['/home']);
         } else {
           this.router.navigate(['/signup']);
