@@ -1,6 +1,7 @@
 const express = require('express');
 //const admin = require('./firestone-admin/admin');
 const loginRouter = require('./routes/login');
+const signoutRouter = require('./routes/signout');
 const signupRouter = require('./routes/signup');
 const addclientRouter = require('./routes/clients/add-client');
 const getclientRouter = require('./routes/clients/get-client');
@@ -22,6 +23,7 @@ app.use(function(req, res, next) {
 
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
+app.use('/signout', signoutRouter);
 app.use('/clients/add-client', addclientRouter);
 app.use('/clients/get-client', getclientRouter);
 

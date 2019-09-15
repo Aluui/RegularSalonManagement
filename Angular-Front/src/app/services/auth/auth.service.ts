@@ -45,11 +45,33 @@ export class AuthService {
     return Boolean(this.getLocalStorage());
   }
 
+  signOut() {
+    this.http.get<any>(this.baseUrl + '/signout').subscribe(
+      arg => {
+        // console.log(arg);
+        if (arg === true) {
+          // console.log(this.authToken);
+          console.log('user logged out');
+
+          this.clearLocalStorage();
+          this.router.navigate(['']);
+        } else {
+          alert('Error logging out. Please try again.');
+        }
+      },
+      error => console.log(error)
+    );
+  }
+
   setLocalStorage(uid: string) {
     localStorage.setItem(this.uidKey, uid);
   }
 
   getLocalStorage() {
     return localStorage.getItem(this.uidKey);
+  }
+
+  clearLocalStorage() {
+    return localStorage.clear();
   }
 }
