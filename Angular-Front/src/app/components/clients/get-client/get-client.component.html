@@ -2,8 +2,8 @@
 
 <div *ngFor="let client of clients | async">
   <h3>
-    <a [routerLink]="['client-details', client.clientId]" routerLinkActive="">{{
-      client.first + ' ' + client.last
+    <a [routerLink]="['client', client.clientId]" routerLinkActive="">{{
+      client.first + " " + client.last
     }}</a>
     -
     <button>

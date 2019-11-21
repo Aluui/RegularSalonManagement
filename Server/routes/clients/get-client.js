@@ -25,23 +25,4 @@ app.get('/', function(req, res, next) {
     });
 });
 
-//Get an individual client based on Id
-app.get('/', function(req, res, next) {
-  let clientId = req.query;
-  console.log(clientId);
-  dbRef
-    .doc(clientId)
-    .get()
-    .then(client => {
-      if (!client.exists) {
-        console.log('No such document!');
-      } else {
-        console.log('Client data:', client.data());
-      }
-    })
-    .catch(err => {
-      console.log('Error getting document', err);
-    });
-});
-
 module.exports = app;

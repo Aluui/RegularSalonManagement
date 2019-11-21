@@ -4,7 +4,8 @@ const loginRouter = require('./routes/login');
 const signoutRouter = require('./routes/signout');
 const signupRouter = require('./routes/signup');
 const addclientRouter = require('./routes/clients/add-client');
-const getclientRouter = require('./routes/clients/get-client');
+const getclientsRouter = require('./routes/clients/get-client');
+const getsingleclientRouter = require('./routes/clients/get-single-client');
 
 const firebase = require('firebase');
 
@@ -25,7 +26,9 @@ app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/signout', signoutRouter);
 app.use('/clients/add-client', addclientRouter);
-app.use('/clients/get-client', getclientRouter);
+app.use('/clients/get-client', getclientsRouter);
+app.use('/clients/get-single-client', getsingleclientRouter);
+// app.use(express.static('routes'));
 
 // TODO: Replace the following with your app's Firebase project configuration
 var firebaseConfig = {

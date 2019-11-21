@@ -7,7 +7,7 @@ const firebase = require('firebase');
 app.get('/', function(req, res, next) {
   let email = req.query.email;
   let password = req.query.password;
-  // console.log(email, password);
+  console.log(email, password);
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
@@ -18,7 +18,7 @@ app.get('/', function(req, res, next) {
           //console.log('User is: ', user);
         } else {
           res.send(null);
-          console.log('User Probably Doesnt exist');
+          console.log('User Probably Does not exist');
         }
       })
     )

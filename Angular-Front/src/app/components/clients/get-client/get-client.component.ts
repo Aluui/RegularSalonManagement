@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { ViewClientsService } from 'src/app/services/clients/view-clients.service';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import { ClientsService } from "src/app/services/clients/clients.service";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-get-client',
-  templateUrl: './get-client.component.html',
-  styleUrls: ['./get-client.component.scss']
+  selector: "app-get-client",
+  templateUrl: "./get-client.component.html",
+  styleUrls: ["./get-client.component.scss"]
 })
 export class GetClientComponent implements OnInit {
   clients: Observable<any>;
 
-  constructor(private getClientService: ViewClientsService) {
+  constructor(private getClientService: ClientsService) {
     // this.clients = this.getClientService.getClient();
   }
 
   ngOnInit() {
-    this.clients = this.getClientService.getClient();
+    this.clients = this.getClientService.getClients();
+    console.log(this.clients);
   }
 }
