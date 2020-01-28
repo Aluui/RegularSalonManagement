@@ -1,17 +1,40 @@
-<p>Login</p>
+<div class="row">
+  <div class="col-sm-6">
+    <form class="loginForm" (submit)="formSubmitted()">
+      <div class="form-group col-md-6">
+        <label for="email" class="col-form-label">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="your email goes here"
+        />
+      </div>
 
-<form class="loginForm" (submit)="formSubmitted()">
-  <input
-    type="text"
-    [(ngModel)]="email"
-    name="email"
-    placeholder="your email goes here"
-  />
-  <input
-    type="password"
-    [(ngModel)]="password"
-    name="password"
-    placeholder="password"
-  />
-  <button type="submit">Submit</button>
-</form>
+      <div class="form-group col-md-6">
+        <label for="password" class="col-form-label"> Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="password"
+        />
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="col-sm-2">hi</div> -->
+  <div class="col-sm-6">
+    <div class="col-auto center">
+      <button type="button" routerLink="/signup" class="btn btn-success">
+        SignUp
+      </button>
+    </div>
+  </div>
+</div>

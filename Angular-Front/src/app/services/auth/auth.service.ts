@@ -9,13 +9,32 @@ import { Router } from "@angular/router";
 export class AuthService {
   baseUrl = environment.baseUrl;
   private authToken: string;
-  private uidKey: string = "userid";
+  private uidKey = "userid";
+
+  
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  isAuthenticated() {
+    return Boolean(this.getLocalStorage());
+  }
+
+  setLocalStorage(uid: string) {
+    return localStorage.setItem(this.uidKey, uid);
+  }
+
+  getLocalStorage() {
+    console.log(this.uidKey);
+    return localStorage.getItem(this.uidKey);
+  }
+
+  clearLocalStorage() {
+    return localStorage.clear();
+  }
+
   login(email: string, password: string) {
     const authUID = this.getLocalStorage();
-    //console.log("This will display the auth uid: ", authUID);
+    // console.log("This will display the auth uid: ", authUID);
 
     const params = new HttpParams({
       fromObject: { email, password }
@@ -23,7 +42,7 @@ export class AuthService {
 
     if (authUID) {
       this.router.navigate(["/home"]);
-      //console.log(authUID);
+      // console.log(authUID);
       return;
     }
 
@@ -46,10 +65,6 @@ export class AuthService {
       );
   }
 
-  isAuthenticated() {
-    return Boolean(this.getLocalStorage());
-  }
-
   signOut() {
     this.http.get<any>(this.baseUrl + "/signout").subscribe(
       arg => {
@@ -66,18 +81,5 @@ export class AuthService {
       },
       error => console.log(error)
     );
-  }
-
-  setLocalStorage(uid: string) {
-    return localStorage.setItem(this.uidKey, uid);
-  }
-
-  getLocalStorage() {
-    console.log(this.uidKey);
-    return localStorage.getItem(this.uidKey);
-  }
-
-  clearLocalStorage() {
-    return localStorage.clear();
   }
 }

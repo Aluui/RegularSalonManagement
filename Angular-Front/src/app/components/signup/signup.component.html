@@ -1,19 +1,58 @@
-<p>signup works!</p>
+<div class="row">
+  <div class="col-md-6">
+    <form (submit)="formSubmitted()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="name"
+          name="name"
+          placeholder="Name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          class="form-control"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Email"
+        />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="password"
+        />
+      </div>
+      <div class="form-group">
+        <label for="phonenumber">Phone Number</label>
+        <input
+          type="text"
+          id="phonenumber"
+          class="form-control"
+          [(ngModel)]="phoneNumber"
+          name="phoneNumber"
+          placeholder="format: +12223334444"
+        />
+      </div>
 
-<form (submit)="formSubmitted()">
-  <input type="text" [(ngModel)]="name" name="name" placeholder="Name" />
-  <input type="text" [(ngModel)]="email" name="email" placeholder="Email" />
-  <input
-    type="password"
-    [(ngModel)]="password"
-    name="password"
-    placeholder="password"
-  />
-  <input
-    type="text"
-    [(ngModel)]="phoneNumber"
-    name="phoneNumber"
-    placeholder="format: +12223334444"
-  />
-  <button type="submit">Submit</button>
-</form>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <div class="col-md-6">
+    <button type="button" class="btn btn-outline-info" routerLink="/">
+      Login
+    </button>
+  </div>
+</div>

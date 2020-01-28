@@ -1,28 +1,20 @@
-<p>clients works!</p>
-
 <nav>
-  <li>
-    <button
-      class="nav-link"
-      [routerLink]="['/clients/add-client']"
-      routerLinkActive=""
-    >
-      Add New Client
-    </button>
-  </li>
-
-  <li>
-    <button class="nav-link" (click)="signout()">Signout</button>
-  </li>
-  <!-- <li>
-    <a
-      class="nav-link"
-      [routerLink]="['/edit-client/:uid']"
-      routerLinkActive=""
-      href="#"
-      >Edit Client</a
-    >
-  </li> -->
+  <ul class="nav">
+    <li class="nav-item">
+      <!-- <button
+        class="nav-link btn btn-outline-primary"
+        [routerLink]="['/clients/add-client']"
+        routerLinkActive=""
+      >
+        Add New Client
+      </button> -->
+      <i
+        class="fa fa-plus btn btn-primary"
+        [routerLink]="['/clients/add-client']"
+        routerLinkActive=""
+      ></i>
+    </li>
+  </ul>
 </nav>
 
 <app-get-client></app-get-client>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ClientsService } from "src/app/services/clients/clients.service";
 import { Observable } from "rxjs";
+import { Client } from "src/app/entity/client";
 
 @Component({
   selector: "app-get-client",
@@ -9,7 +10,7 @@ import { Observable } from "rxjs";
 })
 export class GetClientComponent implements OnInit {
   clients: Observable<any>;
-
+  client: Client;
   constructor(private getClientService: ClientsService) {
     // this.clients = this.getClientService.getClient();
   }
