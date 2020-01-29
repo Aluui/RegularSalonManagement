@@ -1,23 +1,31 @@
-import { Component, OnInit } from "@angular/core";
-import { AuthGuard } from "src/app/guards/auth-guard.service";
-import { AuthService } from "src/app/services/auth/auth.service";
-import { Observable } from "rxjs";
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { AuthGuard } from 'src/app/guards/auth-guard.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: "app-header",
-  templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"]
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn$: boolean;
+    isLoggedIn$: boolean;
 
-  constructor(private authService: AuthService) {}
+    constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-    this.isLoggedIn$ = this.authService.isAuthenticated();
-  }
+    ngOnInit() {
+        if (this.authService.isAuthenticated()) {
+            this.isLoggedIn$ = true;
+        }
+    }
 
-  signout() {
-    this.authService.signOut();
-  }
+    // ngOnChanges() {
+    //     if (this.authService.isAuthenticated()) {
+    //         this.isLoggedIn$ = true;
+    //     }
+    // }
+
+    signout() {
+        this.authService.signOut();
+    }
 }

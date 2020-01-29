@@ -1,44 +1,48 @@
 <nav class="nav navbar-expand-lg navbar-light">
-  <a
-    class="navbar-brand"
-    [routerLink]="['/home']"
-    routerLinkActive="router-link-active"
-    >Aspire</a
-  >
+    <a
+        class="navbar-brand"
+        [routerLink]="['/home']"
+        routerLinkActive="router-link-active"
+        >Aspire</a
+    >
 
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarNav"
-    aria-controls="navbarNav"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div *ngIf="!isLoggedIn$" class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/']">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/']">Contact</a>
-      </li>
-    </ul>
-  </div>
+    <div
+        *ngIf="!isLoggedIn$; else signedIn"
+        class="collapse navbar-collapse"
+        id="navbarNav"
+    >
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/']">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/']">Contact</a>
+            </li>
+        </ul>
+    </div>
 
-  <div *ngIf="isLoggedIn$" class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/']">Chinedu</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="signout()">Sign Out</a>
-      </li>
-    </ul>
-  </div>
+    <ng-template #signedIn class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/']">Chinedu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="signout()">Sign Out</a>
+            </li>
+        </ul>
+    </ng-template>
 </nav>
 
 <!-- <li class="nav-item">
