@@ -45,8 +45,21 @@ export class AuthService {
         const params = new HttpParams({
             fromObject: { email }
         });
-        return this.http.get<any>(this.baseUrl + '/forgot-password', {
-            params
-        });
+
+        this.http
+            .get<any>(this.baseUrl + '/forgot-password', {
+                params
+            })
+            .subscribe(
+                result => {
+                    // console.log(message);
+                    if (result === true) {
+                        return true;
+                    } else {
+                        console.log(result.error.text);
+                    }
+                },
+                error => console.log(error)
+            );
     }
 }
