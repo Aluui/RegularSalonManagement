@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-12 col-sm-12">
         <form class="loginForm" (submit)="formSubmitted()">
             <div class="form-group col-md-6">
                 <label for="email" class="col-form-label">Email</label>
@@ -27,19 +27,30 @@
                     placeholder="password"
                 />
             </div>
-            <div class="col-auto">
+            <div class="col-sm-4">
                 <button type="submit" class="btn btn-primary">
                     Submit
+                </button>
+            </div>
+            <div class="col-sm-4">
+                <button
+                    type="button"
+                    routerLink="/signup"
+                    class="btn btn-success"
+                >
+                    SignUp
+                </button>
+            </div>
+            <div class="col-sm-4">
+                <button
+                    type="button"
+                    routerLink="/forgot-password"
+                    class="btn btn-success"
+                >
+                    Forgot Password
                 </button>
             </div>
         </form>
     </div>
     <!-- <div class="col-sm-2">hi</div> -->
-    <div class="col-sm-6">
-        <div class="col-auto center">
-            <button type="button" routerLink="/signup" class="btn btn-success">
-                SignUp
-            </button>
-        </div>
-    </div>
 </div>
