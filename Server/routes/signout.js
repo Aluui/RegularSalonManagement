@@ -4,6 +4,7 @@ const dotenv = require('dotenv').config();
 //const admin = require('./firestone-admin/admin');
 const firebase = require('firebase');
 
+
 app.get('/', function(req, res, next) {
   firebase
     .auth()
