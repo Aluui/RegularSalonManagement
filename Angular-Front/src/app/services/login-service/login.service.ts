@@ -17,10 +17,14 @@ export class LoginService {
     login(email: string, password: string) {
         this.authService.login(email, password).subscribe({
             next(res) {
-                console.log(res.user);
+                // console.log(res.user);
                 this.authToken = res.user.stsTokenManager.accessToken;
-
+                this.uid = res.user.uid;
+                this.name = res.user.displayName;
+                // onsole.log(res.user);
                 localStorage.setItem('authToken', this.authToken);
+                localStorage.setItem('userId', this.uid);
+                localStorage.setItem('name', this.name);
                 // this.router.navigate(['/home']);
             },
             error(res) {

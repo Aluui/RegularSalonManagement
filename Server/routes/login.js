@@ -7,7 +7,7 @@ const firebase = require('firebase');
 app.get('/', function(req, res, next) {
     let email = req.query.email;
     let password = req.query.password;
-    console.log(email, password);
+    // console.log(email, password);
     firebase
         .auth()
         .signInWithEmailAndPassword(email, password)

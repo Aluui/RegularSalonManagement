@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
     email: string;
     password: string;
-    result: boolean;
+    // result: any;
 
     constructor(
         private loginService: LoginService,
