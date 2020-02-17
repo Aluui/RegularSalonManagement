@@ -14,11 +14,18 @@ const app = express();
 
 app.set('view engine', 'static');
 
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded());
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header(
         'Access-Control-Allow-Headers',
-        'Origin, X-RequOMAIN.TLDested-With, Content-Type, Accept'
+        'Origin, X-Requested-With, Content-Type, Accept'
     );
     next();
 });

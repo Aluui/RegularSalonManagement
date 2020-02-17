@@ -1,41 +1,41 @@
 <form (submit)="formSubmitted()" class="col-md-5 form-group">
-  <input
-    type="text"
-    class="form-control"
-    [(ngModel)]="firstName"
-    name="firstName"
-    placeholder="First Name"
-  />
-  <input
-    type="text"
-    class="form-control"
-    [(ngModel)]="lastName"
-    name="lastName"
-    placeholder="Last Name"
-  />
-  <input
-    type="text"
-    class="form-control"
-    [(ngModel)]="DOB"
-    name="DOB"
-    placeholder="(MM/DD/YYYY)"
-  />
-  <input
-    type="text"
-    class="form-control"
-    [(ngModel)]="phoneNumber"
-    name="phoneNumber"
-    placeholder="format: 222-333-4444"
-  />
-  <div class="col-auto">
-    <button
-      type="button"
-      class="btn btn-outline-warning"
-      [routerLink]="['/clients']"
-      routerLinkActive="router-link-active"
-    >
-      Cancel
-    </button>
-    <button type="submit" class="btn btn-outline-primary">Submit</button>
-  </div>
+    <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newClient.firstName"
+        name="newClient.firstName"
+        placeholder="First Name"
+    />
+    <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newClient.lastName"
+        name="newClient.lastName"
+        placeholder="Last Name"
+    />
+    <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newClient.birthday"
+        name="newClient.birthday"
+        placeholder="(MM/DD/YYYY)"
+    />
+    <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newClient.phoneNumber"
+        name="newClient.phoneNumber"
+        placeholder="format: 222-333-4444"
+    />
+    <div class="col-auto">
+        <button
+            type="button"
+            class="btn btn-outline-warning"
+            [routerLink]="['/clients']"
+            routerLinkActive="router-link-active"
+        >
+            Cancel
+        </button>
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </div>
 </form>

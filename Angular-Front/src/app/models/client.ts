@@ -5,7 +5,7 @@ import { Note } from './note';
 export class Client {
     firstName: string;
     lastName: string;
-    fullName: string = this.firstName + ' ' + this.lastName;
+    fullName: string;
     emailAddress: string;
     phoneNumber: string;
     address: Address = new Address();
@@ -16,13 +16,13 @@ export class Client {
     accountBalance: number;
     firstApptDate: Date;
     lastApptDate: Date;
-    futureAppointments: string; //change to array of referrals model once created
+    futureAppointments: string; // change to array of referrals model once created
     photos: Photo[];
     referredBy: string;
-    referrals: string[]; //change to array of referrals model once created.
+    referrals: string[]; // change to array of referrals model once created.
     ageGroup: string;
     gender: string;
     notes: Note[];
-    serviceHistory: string; //change to array of services model once created.
-    purchases: string; //Change to purchases model once created
+    serviceHistory: string; // change to array of services model once created.
+    purchases: string; // Change to purchases model once created
 }

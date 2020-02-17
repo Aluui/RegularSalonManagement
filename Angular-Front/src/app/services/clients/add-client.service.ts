@@ -1,39 +1,54 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Client } from 'src/app/models/client';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AddClientService {
-  baseUrl = environment.baseUrl;
+    baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient, private router: Router) {}
+    // newClient = new Client();
 
-  addClient(
-    firstName: string,
-    lastName: string,
-    DOB: string,
-    phoneNumber: string
-  ) {
-    const params = new HttpParams({
-      fromObject: { firstName, lastName, DOB, phoneNumber }
-    });
-    // console.log(params);
+    constructor(private http: HttpClient, private router: Router) {}
 
-    this.http.get(this.baseUrl + '/clients/add-client', { params }).subscribe(
-      result => {
-        // console.log(result);
-        if (result === true) {
-          console.log('Client added');
-          // this.router.navigate(['/home']);
-        } else {
-          console.log('Client not added');
-          // this.router.navigate(['/signup']);
-        }
-      },
-      error => console.log(error)
-    );
-  }
+    addClient(client: Client) {
+        // console.log(client);
+        const adminId = localStorage.getItem('adminId');
+
+        const clientData = {
+            client,
+            adminId
+        };
+
+        const headers = new HttpHeaders().set(
+            'Content-Type',
+            'application/json'
+        );
+        // this.newClient = client;
+        // const params = new HttpParams({
+        //     fromObject: { client.firstName.ToString, newClient.lastName, this.newClient.birthday, nwphoneNumber }
+        // });
+        // console.log(params);
+
+        this.http
+            .post(this.baseUrl + '/clients/add-client', clientData, {
+                headers
+            })
+            .subscribe(
+                result => {
+                    // console.log(result);
+                    if (result === true) {
+                        console.log('Client added');
+                        // this.router.navigate(['/home']);
+                    } else {
+                        console.log('Client not added');
+                        // this.router.navigate(['/signup']);
+                    }
+                },
+                error => console.log(error)
+            );
+    }
 }

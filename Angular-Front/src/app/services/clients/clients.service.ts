@@ -1,25 +1,33 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { environment } from "src/environments/environment";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: "root"
+    providedIn: 'root'
 })
 export class ClientsService {
-  baseUrl = environment.baseUrl;
+    baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-  getClients() {
-    return this.http.get<any>(this.baseUrl + "/clients/get-client");
-  }
+    getClients() {
+        const adminId = localStorage.getItem('adminId');
 
-  getSingleClient(id: string) {
-    const params = new HttpParams({
-      fromObject: { id }
-    });
-    return this.http.get<any>(this.baseUrl + "/clients/get-single-client", {
-      params
-    });
-  }
+        const params = new HttpParams({
+            fromObject: { adminId }
+        });
+        return this.http.get<any>(this.baseUrl + '/clients/get-client', {
+            params
+        });
+    }
+
+    getSingleClient(id: string) {
+        const adminId = localStorage.getItem('adminId');
+        const params = new HttpParams({
+            fromObject: { id, adminId }
+        });
+        return this.http.get<any>(this.baseUrl + '/clients/get-single-client', {
+            params
+        });
+    }
 }

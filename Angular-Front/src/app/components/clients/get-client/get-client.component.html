@@ -1,21 +1,21 @@
 <h2>My Clients</h2>
 
 <div *ngFor="let client of clients | async">
-  <h4>
-    {{ client.first + " " + client.last }} -
-    <!-- <button
+    <h4>
+        {{ client.firstName + ' ' + client.lastName }} -
+        <!-- <button
       class="btn btn-outline-warning"
       [routerLink]="['client', client.clientId]"
       routerLinkActive=""
     >
       Edit Client
     </button> -->
-    <i
-      class="fa fa-user btn btn-outline-info"
-      [routerLink]="['client', client.clientId]"
-      routerLinkActive=""
-    ></i>
-    <i class="fa fa-pencil btn btn-outline-warning"></i>
-    <i class="fa fa-trash btn btn-outline-danger"></i>
-  </h4>
+        <i
+            class="fa fa-user btn btn-outline-info"
+            [routerLink]="['client', client.clientId]"
+            routerLinkActive=""
+        ></i>
+        <i class="fa fa-pencil btn btn-outline-warning"></i>
+        <i class="fa fa-trash btn btn-outline-danger"></i>
+    </h4>
 </div>
