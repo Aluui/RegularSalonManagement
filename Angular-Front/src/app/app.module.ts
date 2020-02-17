@@ -17,6 +17,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { EditclientComponent } from './components/clients/editclient/editclient.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
         HeaderComponent,
         FooterComponent,
         EditclientComponent,
-        ForgotPasswordComponent
+        ForgotPasswordComponent,
+        ScheduleComponent
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [AuthGuard],

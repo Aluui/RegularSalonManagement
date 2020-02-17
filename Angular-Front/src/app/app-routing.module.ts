@@ -8,6 +8,7 @@ import { AddClientComponent } from './components/clients/add-client/add-client.c
 import { ClientDetailsComponent } from './components/clients/client-details/client-details.component';
 import { AuthGuard } from './guards/auth-guard.service';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 const routes: Routes = [
     {
@@ -40,6 +41,11 @@ const routes: Routes = [
     {
         path: 'clients/client/:id',
         component: ClientDetailsComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'schedule',
+        component: ScheduleComponent,
         canActivate: [AuthGuard]
     }
 ];
