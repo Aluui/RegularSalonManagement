@@ -23,7 +23,7 @@ export class LoginService {
                 this.name = res.user.displayName;
                 // onsole.log(res.user);
                 localStorage.setItem('authToken', this.authToken);
-                localStorage.setItem('userId', this.uid);
+                localStorage.setItem('adminId', this.uid);
                 localStorage.setItem('name', this.name);
                 // this.router.navigate(['/home']);
             },

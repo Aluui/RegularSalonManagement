@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { AddClientService } from 'src/app/services/clients/add-client.service';
+import { Client } from 'src/app/models/client';
 
 @Component({
-  selector: 'app-add-client',
-  templateUrl: './add-client.component.html',
-  styleUrls: ['./add-client.component.scss']
+    selector: 'app-add-client',
+    templateUrl: './add-client.component.html',
+    styleUrls: ['./add-client.component.scss']
 })
 export class AddClientComponent implements OnInit {
-  firstName: string;
-  lastName: string;
-  DOB: string;
-  phoneNumber: string;
+    newClient = new Client();
 
-  constructor(private addClientService: AddClientService) {}
+    // firstName: string;
+    // lastName: string;
+    // DOB: string;
+    // phoneNumber: string;
 
-  ngOnInit() {}
+    constructor(private addClientService: AddClientService) {}
 
-  formSubmitted() {
-    // console.log(this.firstName, this.lastName, this.DOB, this.phoneNumber);
-    this.addClientService.addClient(
-      this.firstName,
-      this.lastName,
-      this.DOB,
-      this.phoneNumber
-    );
-  }
+    ngOnInit() {}
+
+    formSubmitted() {
+        // console.log(this.newClient);
+        // console.log(this.firstName, this.lastName, this.DOB, this.phoneNumber);
+        this.addClientService.addClient(this.newClient);
+    }
 }

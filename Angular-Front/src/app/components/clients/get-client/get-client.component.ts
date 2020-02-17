@@ -11,6 +11,7 @@ import { Client } from 'src/app/entity/client';
 export class GetClientComponent implements OnInit {
     clients: Observable<any>;
     client: Client;
+
     constructor(private getClientService: ClientsService) {
         // this.clients = this.getClientService.getClient();
     }
