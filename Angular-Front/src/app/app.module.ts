@@ -18,6 +18,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { EditclientComponent } from './components/clients/editclient/editclient.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
     declarations: [
@@ -35,7 +37,16 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
         ForgotPasswordComponent,
         ScheduleComponent
     ],
-    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        CalendarModule.forRoot({
+            provide: DateAdapter,
+            useFactory: adapterFactory
+        })
+    ],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
