@@ -1,3 +1,10 @@
+<ng-template #loading>
+    <div class="text-center">
+        <i class="fa fa-spin fa-spinner fa-5x"></i> <br />
+        Loading Schedule...
+    </div>
+</ng-template>
+
 <div class="row text-center">
     <div class="col-md-4">
         <div class="btn-group">
@@ -59,13 +66,16 @@
 </div>
 <br />
 
+<!-- <div *ngIf="events$ | async; else loading; let events"> -->
 <div [ngSwitch]="view">
     <mwl-calendar-month-view
         *ngSwitchCase="CalendarView.Month"
         [viewDate]="viewDate"
         [refresh]="refresh"
         [events]="events"
+        [activeDayIsOpen]="activeDayIsOpen"
         (dayClicked)="dayClicked($event.day)"
+        (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-month-view>
     <mwl-calendar-week-view
@@ -73,6 +83,7 @@
         [viewDate]="viewDate"
         [refresh]="refresh"
         [events]="events"
+        (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-week-view>
     <mwl-calendar-day-view
@@ -80,6 +91,9 @@
         [viewDate]="viewDate"
         [refresh]="refresh"
         [events]="events"
+        [hourSegments]="4"
+        (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-day-view>
 </div>
+<!-- </div> -->

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
 import {
     startOfDay,
     endOfDay,
@@ -17,6 +17,7 @@ import {
     CalendarView
 } from 'angular-calendar';
 import { Appointment } from 'src/app/models/appointment';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const colors: any = {
     red: {
@@ -35,26 +36,36 @@ const colors: any = {
 
 @Component({
     selector: 'app-schedule',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './schedule.component.html',
     styleUrls: ['./schedule.component.scss']
 })
-export class ScheduleComponent implements OnInit {
+export class ScheduleComponent {
     view: CalendarView = CalendarView.Month;
 
     CalendarView = CalendarView;
 
     viewDate: Date = new Date();
 
-    activeDayIsOpen = true;
+    // events$: Observable<Array<CalendarEvent<{ appointment: Appointment }>>>;
 
-    // appointments: Appointment[] = [
-    //     {
-    //         client: {
-    //             firstName: 'chinedu'
-    //         },
-    //         dateOfAppointment: ' 02-18-2020'
-    //     }
-    // ];
+    actions: CalendarEventAction[] = [
+        {
+            label: '<i class="fa fa-fw fa-pencil"></i>',
+            a11yLabel: 'Edit',
+            onClick: ({ event }: { event: CalendarEvent }): void => {
+                console.log('Edited', event);
+            }
+        },
+        {
+            label: '<i class="fa fa-fw fa-times"></i>',
+            a11yLabel: 'Delete',
+            onClick: ({ event }: { event: CalendarEvent }): void => {
+                this.events = this.events.filter(iEvent => iEvent !== event);
+                console.log('Deleted', event);
+            }
+        }
+    ];
 
     refresh: Subject<any> = new Subject();
 
@@ -73,9 +84,9 @@ export class ScheduleComponent implements OnInit {
         }
     ];
 
-    constructor() {}
+    activeDayIsOpen = false;
 
-    ngOnInit() {}
+    constructor(private modal: NgbModule) {}
 
     dayClicked({
         date,
@@ -96,6 +107,45 @@ export class ScheduleComponent implements OnInit {
             }
             this.viewDate = date;
         }
+    }
+
+    eventTimesChanged({
+        event,
+        newStart,
+        newEnd
+    }: CalendarEventTimesChangedEvent): void {
+        this.events = this.events.map(iEvent => {
+            if (iEvent === event) {
+                return {
+                    ...event,
+                    start: newStart,
+                    end: newEnd
+                };
+            }
+            return iEvent;
+        });
+        // this.handleEvent('Dropped or resized', event);
+    }
+
+    addEvent(): void {
+        this.events = [
+            ...this.events,
+            {
+                title: 'New event',
+                start: startOfDay(new Date()),
+                end: endOfDay(new Date()),
+                color: colors.red,
+                draggable: true,
+                resizable: {
+                    beforeStart: true,
+                    afterEnd: true
+                }
+            }
+        ];
+    }
+
+    deleteEvent(eventToDelete: CalendarEvent) {
+        this.events = this.events.filter(event => event !== eventToDelete);
     }
 
     setView(view: CalendarView) {
