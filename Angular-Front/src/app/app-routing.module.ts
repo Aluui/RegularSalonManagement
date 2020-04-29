@@ -10,6 +10,7 @@ import { AuthGuard } from './guards/auth-guard.service';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ViewScheduleComponent } from './components/schedule/view-schedule/view-schedule.component';
 import { AddAppointmentComponent } from './components/schedule/add-appointment/add-appointment.component';
+import { EditclientComponent } from './components/clients/edit-client/editclient.component';
 
 const routes: Routes = [
     {
@@ -42,6 +43,11 @@ const routes: Routes = [
     {
         path: 'clients/client/:id',
         component: ClientDetailsComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'clients/client-edit/:id',
+        component: EditclientComponent,
         canActivate: [AuthGuard],
     },
     {

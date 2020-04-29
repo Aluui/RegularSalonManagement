@@ -45,4 +45,34 @@ export class AddClientService {
                 (error) => console.log(error)
             );
     }
+
+    updateClient(client: Client, id: any) {
+        const clientData = {
+            client,
+            id,
+        };
+
+        const headers = new HttpHeaders().set(
+            'Content-Type',
+            'application/json'
+        );
+
+        this.http
+            .post(this.baseUrl + '/clients/edit-client', clientData, {
+                headers,
+            })
+            .subscribe(
+                (result) => {
+                    // console.log(result);
+                    if (result === true) {
+                        console.log('Client added');
+                        this.router.navigate(['/home']);
+                    } else {
+                        console.log('Client not added');
+                        this.router.navigate(['/add-client']);
+                    }
+                },
+                (error) => console.log(error)
+            );
+    }
 }

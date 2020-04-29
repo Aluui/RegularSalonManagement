@@ -15,7 +15,11 @@
             [routerLink]="['client', client.clientId]"
             routerLinkActive=""
         ></i>
-        <i class="fa fa-pencil btn btn-outline-warning"></i>
+        <i
+            class="fa fa-pencil btn btn-outline-warning"
+            [routerLink]="['client-edit', client.clientId]"
+            routerLinkActive=""
+        ></i>
         <i class="fa fa-trash btn btn-outline-danger"></i>
     </h4>
 </div>
