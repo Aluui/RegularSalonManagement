@@ -7,6 +7,8 @@ const addclientRouter = require('./routes/clients/add-client');
 const getclientsRouter = require('./routes/clients/get-client');
 const getsingleclientRouter = require('./routes/clients/get-single-client');
 const forgotpasswordRouter = require('./routes/forgot-password');
+const addAppointmentRouter = require('./routes/appointments/add-appointment');
+const getAppointmentsRouter = require('./routes/appointments/get-appointments');
 
 const firebase = require('firebase');
 
@@ -20,7 +22,7 @@ app.use(express.urlencoded());
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header(
@@ -37,6 +39,8 @@ app.use('/clients/add-client', addclientRouter);
 app.use('/clients/get-client', getclientsRouter);
 app.use('/clients/get-single-client', getsingleclientRouter);
 app.use('/forgot-password', forgotpasswordRouter);
+app.use('/add-appointment', addAppointmentRouter);
+app.use('/get-appointments', getAppointmentsRouter);
 // app.use(express.static('routes'));
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -47,7 +51,7 @@ var firebaseConfig = {
     projectId: process.env.FIREBASE_PROJECT_ID,
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.FIREBASE_APP_ID
+    appId: process.env.FIREBASE_APP_ID,
 };
 
 // Initialize Firebase

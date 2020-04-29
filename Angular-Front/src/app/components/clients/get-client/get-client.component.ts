@@ -6,11 +6,11 @@ import { Client } from 'src/app/entity/client';
 @Component({
     selector: 'app-get-client',
     templateUrl: './get-client.component.html',
-    styleUrls: ['./get-client.component.scss']
+    styleUrls: ['./get-client.component.scss'],
 })
 export class GetClientComponent implements OnInit {
     clients: Observable<any>;
-    client: Client;
+    // client: Client;
 
     constructor(private getClientService: ClientsService) {
         // this.clients = this.getClientService.getClient();

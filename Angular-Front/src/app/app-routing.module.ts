@@ -8,44 +8,56 @@ import { AddClientComponent } from './components/clients/add-client/add-client.c
 import { ClientDetailsComponent } from './components/clients/client-details/client-details.component';
 import { AuthGuard } from './guards/auth-guard.service';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ViewScheduleComponent } from './components/schedule/view-schedule/view-schedule.component';
+import { AddAppointmentComponent } from './components/schedule/add-appointment/add-appointment.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: LoginComponent
+        component: LoginComponent,
     },
     {
         path: 'signup',
-        component: SignupComponent
+        component: SignupComponent,
     },
     {
         path: 'forgot-password',
-        component: ForgotPasswordComponent
+        component: ForgotPasswordComponent,
     },
     {
         path: 'home',
         component: HomeComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
     },
     {
         path: 'clients',
         component: ClientsComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
     },
     {
         path: 'clients/add-client',
         component: AddClientComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
     },
     {
         path: 'clients/client/:id',
         component: ClientDetailsComponent,
-        canActivate: [AuthGuard]
-    }
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'schedule',
+        component: ViewScheduleComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'add-appointment',
+        component: AddAppointmentComponent,
+        canActivate: [AuthGuard],
+    },
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
 export class AppRoutingModule {}

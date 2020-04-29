@@ -4,19 +4,19 @@ const admin = require('../../firestone-admin/admin');
 
 let db = admin.firestore();
 
-app.post('/', function(req, res, next) {
-    let client = req.body.client;
+app.post('/', function (req, res, next) {
+    let appt = req.body.appt;
     // let adminId = req.body.adminId;
     // console.log(client, adminId);
 
     let docRef = db
-        .collection('Clients')
-        .add(client)
-        .then(docRef => {
+        .collection('Appointments')
+        .add(appt)
+        .then((docRef) => {
             res.send(true);
             console.log('Document written with ID: ', docRef.id);
         })
-        .catch(error => console.log('Error adding document: ', error));
+        .catch((error) => console.log('Error adding document: ', error));
 });
 
 module.exports = app;

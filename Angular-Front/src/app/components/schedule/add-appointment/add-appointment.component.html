@@ -1,0 +1,70 @@
+<h3>Add An Appointment</h3>
+<form (submit)="formSubmitted()" #ngform="" class="col-md-5">
+    <div class="row">
+        <div class="col-sm-4 mx-sm-3">
+            <div class="form-group row">
+                <label for="clients" class="col-sm-3 col-form-label"
+                    >Client</label
+                >
+                <div class="col-sm-5">
+                    <select
+                        id="clients"
+                        [(ngModel)]="appointment.clientId"
+                        name="appointment.clientId"
+                    >
+                        <option
+                            *ngFor="let user of clients | async"
+                            [value]="user.clientId"
+                            >{{ user.fullName }}</option
+                        >
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 mx-sm-3">
+            <div class="form-group row">
+                <label for="dateOfAppointment" class="col-sm-3 col-form-label">
+                    Date</label
+                >
+                <div class="col-sm-5">
+                    <input
+                        type="date"
+                        min="{{ min }}"
+                        id="dateOfAppointment"
+                        [(ngModel)]="appointment.dateOfAppointment"
+                        name="appointment.dateOfAppointment"
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mx-sm-6">
+            <div class="form-group row">
+                <label for="timeOfAppointment" class="col-sm-4 col-form-label">
+                    Time</label
+                >
+                <div class="col-sm-5">
+                    <input
+                        type="time"
+                        id="timeOfAppointment"
+                        [(ngModel)]="appointment.timeOfAppointment"
+                        name="appointment.timeOfAppointment"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-5">
+        <label for="appointmentNotes">Notes:</label>
+        <textarea
+            id="appointmentNotes"
+            cols="30"
+            rows="2"
+            [(ngModel)]="appointment.Notes"
+            name="appointment.Notes"
+        ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
+</form>
