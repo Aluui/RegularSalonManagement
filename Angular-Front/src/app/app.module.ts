@@ -19,6 +19,11 @@ import { EditclientComponent } from './components/clients/editclient/editclient.
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { AddAppointmentComponent } from './components/schedule/add-appointment/add-appointment.component';
 import { ViewScheduleComponent } from './components/schedule/view-schedule/view-schedule.component';
+import { NewServiceComponent } from './components/services/new-service/new-service.component';
+import { EditServiceComponent } from './components/services/edit-service/edit-service.component';
+import { ServiceDetailComponent } from './components/services/service-detail/service-detail.component';
+import { DeleteServiceComponent } from './components/services/delete-service/delete-service.component';
+import { ServiceListComponent } from './components/services/service-list/service-list.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +40,12 @@ import { ViewScheduleComponent } from './components/schedule/view-schedule/view-
         EditclientComponent,
         ForgotPasswordComponent,
         AddAppointmentComponent,
-        ViewScheduleComponent
+        ViewScheduleComponent,
+        NewServiceComponent,
+        EditServiceComponent,
+        ServiceDetailComponent,
+        DeleteServiceComponent,
+        ServiceListComponent
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [AuthGuard],

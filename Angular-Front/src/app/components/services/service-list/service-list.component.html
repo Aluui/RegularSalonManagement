@@ -1,0 +1,33 @@
+<nav>
+    <ul class="nav">
+        <li class="nav-item">
+            <i
+                class="fa fa-plus btn btn-primary"
+                [routerLink]="['/services/add-service']"
+                routerLinkActive=""
+            ></i>
+        </li>
+    </ul>
+</nav>
+
+<h2>My Services</h2>
+
+<div *ngFor="let service of services | async">
+    <h4>
+        {{ service.description }} -
+        <!-- <button
+      class="btn btn-outline-warning"
+      [routerLink]="['service', service.serviceId]"
+      routerLinkActive=""
+    >
+      Edit Client
+    </button> -->
+        <i
+            class="fa fa-user btn btn-outline-info"
+            [routerLink]="['service', service.serviceCode]"
+            routerLinkActive=""
+        ></i>
+        <i class="fa fa-pencil btn btn-outline-warning"></i>
+        <i class="fa fa-trash btn btn-outline-danger"></i>
+    </h4>
+</div>

@@ -24,6 +24,7 @@ app.get('/', function (req, res, next) {
                 serviceObject.serviceId = service.id;
                 users.push(serviceObject);
             });
+            console.log('Success getting services: ', users);
             res.send(users);
         })
         .catch((err) => {

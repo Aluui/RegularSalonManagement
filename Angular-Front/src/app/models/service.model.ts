@@ -8,6 +8,7 @@ export class Service {
     departmentType: string;
     categoryType: string;
     servicePrice: number;
+    adminId = localStorage.getItem('adminId');
     totalDuration: {
         initialServiceDuration: Time;
         processingServiceDuration: Time;
