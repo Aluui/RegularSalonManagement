@@ -2,7 +2,7 @@
 
 <div *ngFor="let client of clients | async">
     <h4>
-        {{ client.firstName + ' ' + client.lastName }} -
+        {{ client.fullName }} -
         <!-- <button
       class="btn btn-outline-warning"
       [routerLink]="['client', client.clientId]"

@@ -6,26 +6,26 @@ let db = admin.firestore();
 
 //Get all the clients from the db
 app.get('/', function (req, res, next) {
-    let users = [];
-    let clientUser = {};
+    let appointments = [];
+    let appt = {};
     const adminId = req.query.adminId;
 
     // console.log(adminId);
 
-    let dbRef = db.collection('Clients').where('adminId', '==', adminId);
+    let dbRef = db.collection('Appointments').where('adminId', '==', adminId);
 
     dbRef
         .get()
         .then((doc) => {
-            doc.forEach((client) => {
-                clientUser = client.data();
-                clientUser.clientId = client.id;
-                users.push(clientUser);
+            doc.forEach((appointment) => {
+                appt = appointment.data();
+                appt.apptId = appointment.id;
+                appointments.push(appt);
             });
-            res.send(users);
+            res.send(appointments);
         })
         .catch((err) => {
-            console.log('Error getting clients: ', err);
+            console.log('Error getting any appointments: ', err);
         });
 });
 

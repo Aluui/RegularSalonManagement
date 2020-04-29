@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { Client } from 'src/app/models/client';
+import { Client } from 'src/app/models/client.model';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class AddClientService {
     baseUrl = environment.baseUrl;
@@ -16,39 +16,33 @@ export class AddClientService {
 
     addClient(client: Client) {
         // console.log(client);
-        const adminId = localStorage.getItem('adminId');
+        // const adminId = localStorage.getItem('adminId');
 
         const clientData = {
             client,
-            adminId
         };
 
         const headers = new HttpHeaders().set(
             'Content-Type',
             'application/json'
         );
-        // this.newClient = client;
-        // const params = new HttpParams({
-        //     fromObject: { client.firstName.ToString, newClient.lastName, this.newClient.birthday, nwphoneNumber }
-        // });
-        // console.log(params);
 
         this.http
             .post(this.baseUrl + '/clients/add-client', clientData, {
-                headers
+                headers,
             })
             .subscribe(
-                result => {
+                (result) => {
                     // console.log(result);
                     if (result === true) {
                         console.log('Client added');
-                        // this.router.navigate(['/home']);
+                        this.router.navigate(['/home']);
                     } else {
                         console.log('Client not added');
-                        // this.router.navigate(['/signup']);
+                        this.router.navigate(['/add-client']);
                     }
                 },
-                error => console.log(error)
+                (error) => console.log(error)
             );
     }
 }
