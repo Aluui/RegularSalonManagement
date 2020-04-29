@@ -1,28 +1,28 @@
+const routeNames = require('../route-names').RouteNames;
 const express = require('express');
 const app = express.Router();
 const admin = require('../../firestone-admin/admin');
-const routeNames = require('../route-names').RouteNames;
+
 let db = admin.firestore();
 
 //Get an individual client based on Id
 app.get('/:id?', function (req, res, next) {
     // console.log('Route hit', req);
 
-    let clientId = req.query.id;
+    let serviceId = req.query.id;
     const adminId = req.query.adminId;
 
-    let dbRef = db.collection(routeNames.CLIENTS);
+    let dbRef = db.collection(routeNames.SERVICES);
 
-    // console.log(clientId);
     dbRef
-        .doc(clientId)
+        .doc(serviceId)
         .get()
-        .then((client) => {
-            if (!client.exists) {
+        .then((service) => {
+            if (!service.exists) {
                 //console.log('No such document!');
             } else {
-                //console.log('Client data:', client.data());
-                res.send(client.data());
+                //console.log('service data:', service.data());
+                res.send(service.data());
             }
         })
         .catch((err) => {

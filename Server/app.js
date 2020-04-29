@@ -3,9 +3,15 @@ const express = require('express');
 const loginRouter = require('./routes/login');
 const signoutRouter = require('./routes/signout');
 const signupRouter = require('./routes/signup');
+
 const addclientRouter = require('./routes/clients/add-client');
 const getclientsRouter = require('./routes/clients/get-client');
 const getsingleclientRouter = require('./routes/clients/get-single-client');
+
+const addserviceRouter = require('./routes/services/add-service');
+const getservicesRouter = require('./routes/services/get-services');
+const getsingleserviceRouter = require('./routes/services/get-single-service');
+
 const forgotpasswordRouter = require('./routes/forgot-password');
 const addAppointmentRouter = require('./routes/appointments/add-appointment');
 const getAppointmentsRouter = require('./routes/appointments/get-appointments');
@@ -38,6 +44,11 @@ app.use('/signout', signoutRouter);
 app.use('/clients/add-client', addclientRouter);
 app.use('/clients/get-client', getclientsRouter);
 app.use('/clients/get-single-client', getsingleclientRouter);
+
+app.use('/services/add-service', addserviceRouter);
+app.use('/services/get-service', getservicesRouter);
+app.use('/services/get-single-service', getsingleserviceRouter);
+
 app.use('/forgot-password', forgotpasswordRouter);
 app.use('/add-appointment', addAppointmentRouter);
 app.use('/get-appointments', getAppointmentsRouter);
