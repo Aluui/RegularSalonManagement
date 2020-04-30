@@ -1,6 +1,7 @@
 import { Time } from '@angular/common';
 
 export class Service {
+    serviceId: string;
     serviceCode: string;
     description: string;
     smsDescription: string;

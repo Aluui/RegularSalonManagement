@@ -51,18 +51,43 @@ export class ServiceService {
                 headers,
             }
         );
-        // .subscribe(
-        //     (result) => {
-        //         // console.log(result);
-        //         if (result === true) {
-        //             console.log('Client added');
-        //             this.router.navigate(['/home']);
-        //         } else {
-        //             console.log('Client not added');
-        //             this.router.navigate(['/add-service']);
-        //         }
-        //     },
-        //     (error) => console.log(error)
-        // );
+    }
+
+    updateService(service: Service) {
+        const serviceData = {
+            service,
+        };
+
+        const headers = new HttpHeaders().set(
+            'Content-Type',
+            'application/json'
+        );
+
+        return this.http.post(
+            this.baseUrl + '/services/update-service',
+            serviceData,
+            {
+                headers,
+            }
+        );
+    }
+
+    deleteService(service: Service) {
+        const serviceData = {
+            service,
+        };
+
+        const headers = new HttpHeaders().set(
+            'Content-Type',
+            'application/json'
+        );
+
+        return this.http.post(
+            this.baseUrl + '/services/delete-service',
+            serviceData,
+            {
+                headers,
+            }
+        );
     }
 }

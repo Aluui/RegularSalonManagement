@@ -24,6 +24,7 @@ import { EditServiceComponent } from './components/services/edit-service/edit-se
 import { ServiceDetailComponent } from './components/services/service-detail/service-detail.component';
 import { DeleteServiceComponent } from './components/services/delete-service/delete-service.component';
 import { ServiceListComponent } from './components/services/service-list/service-list.component';
+import { ServiceFormComponent } from './components/services/service-form/service-form.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +46,8 @@ import { ServiceListComponent } from './components/services/service-list/service
         EditServiceComponent,
         ServiceDetailComponent,
         DeleteServiceComponent,
-        ServiceListComponent
+        ServiceListComponent,
+        ServiceFormComponent
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [AuthGuard],

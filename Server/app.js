@@ -9,6 +9,8 @@ const getclientsRouter = require('./routes/clients/get-client');
 const getsingleclientRouter = require('./routes/clients/get-single-client');
 
 const addserviceRouter = require('./routes/services/add-service');
+const updateserviceRouter = require('./routes/services/update-service');
+const deleteserviceRouter = require('./routes/services/delete-service');
 const getservicesRouter = require('./routes/services/get-services');
 const getsingleserviceRouter = require('./routes/services/get-single-service');
 
@@ -46,6 +48,8 @@ app.use('/clients/get-client', getclientsRouter);
 app.use('/clients/get-single-client', getsingleclientRouter);
 
 app.use('/services/add-service', addserviceRouter);
+app.use('/services/update-service', updateserviceRouter);
+app.use('/services/delete-service', deleteserviceRouter);
 app.use('/services/get-service', getservicesRouter);
 app.use('/services/get-single-service', getsingleserviceRouter);
 

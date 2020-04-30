@@ -15,19 +15,19 @@
 <div *ngFor="let service of services | async">
     <h4>
         {{ service.description }} -
-        <!-- <button
-      class="btn btn-outline-warning"
-      [routerLink]="['service', service.serviceId]"
-      routerLinkActive=""
-    >
-      Edit Client
-    </button> -->
+
         <i
             class="fa fa-user btn btn-outline-info"
-            [routerLink]="['service', service.serviceCode]"
+            [routerLink]="['service', service.serviceId]"
             routerLinkActive=""
         ></i>
-        <i class="fa fa-pencil btn btn-outline-warning"></i>
-        <i class="fa fa-trash btn btn-outline-danger"></i>
+        <i
+            class="fa fa-pencil btn btn-outline-warning"
+            [routerLink]="['edit-service', service.serviceId]"
+        ></i>
+        <i
+            class="fa fa-trash btn btn-outline-danger"
+            [routerLink]="['delete-service', service.serviceId]"
+        ></i>
     </h4>
 </div>

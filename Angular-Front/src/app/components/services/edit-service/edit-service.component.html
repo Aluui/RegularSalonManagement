@@ -1,1 +1,9 @@
-<p>edit-service works!</p>
+<h2>Edit Service</h2>
+
+<app-service-form
+    *ngIf="serviceId; else loading"
+    [serviceId]="serviceId"
+    (onSubmit)="formSubmitted($event)"
+></app-service-form>
+
+<ng-template #loading>Loading...</ng-template>

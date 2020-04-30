@@ -13,6 +13,8 @@ import { AddAppointmentComponent } from './components/schedule/add-appointment/a
 import { NewServiceComponent } from './components/services/new-service/new-service.component';
 import { ServiceListComponent } from './components/services/service-list/service-list.component';
 import { ServiceDetailComponent } from './components/services/service-detail/service-detail.component';
+import { EditServiceComponent } from './components/services/edit-service/edit-service.component';
+import { DeleteServiceComponent } from './components/services/delete-service/delete-service.component';
 
 const routes: Routes = [
     {
@@ -65,6 +67,16 @@ const routes: Routes = [
     {
         path: 'services/add-service',
         component: NewServiceComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'services/edit-service/:id',
+        component: EditServiceComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'services/delete-service/:id',
+        component: DeleteServiceComponent,
         canActivate: [AuthGuard],
     },
     {

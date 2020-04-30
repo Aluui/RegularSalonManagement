@@ -9,21 +9,12 @@ import { Router } from '@angular/router';
     styleUrls: ['./new-service.component.scss'],
 })
 export class NewServiceComponent implements OnInit {
-    newService = new Service();
-    // firstName: string;
-    // lastName: string;
-    // DOB: string;
-    // phoneNumber: string;
-
     constructor(private service: ServiceService, private router: Router) {}
 
     ngOnInit() {}
 
-    formSubmitted() {
-        // this.newService.getfullName();
-        // console.log(this.newService);
-        // console.log(this.firstName, this.lastName, this.DOB, this.phoneNumber);
-        this.service.addService(this.newService).subscribe((val) => {
+    formSubmitted(service: Service) {
+        this.service.addService(service).subscribe((val) => {
             this.router.navigateByUrl('/services');
         });
     }

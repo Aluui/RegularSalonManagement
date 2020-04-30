@@ -1,0 +1,72 @@
+<form (submit)="formSubmitted()" class="col-md-5 form-group">
+    <input
+        [disabled]="controlsDisabled"
+        type="text"
+        class="form-control"
+        [(ngModel)]="model.serviceCode"
+        name="model.serviceCode"
+        placeholder="Service Code"
+    />
+    <input
+        [disabled]="controlsDisabled"
+        type="text"
+        class="form-control"
+        [(ngModel)]="model.description"
+        name="model.description"
+        placeholder="Description"
+    />
+    <input
+        [disabled]="controlsDisabled"
+        type="text"
+        class="form-control"
+        [(ngModel)]="model.smsDescription"
+        name="model.smsDescription"
+        placeholder="Sms Description"
+    />
+    <input
+        [disabled]="controlsDisabled"
+        type="number"
+        class="form-control"
+        [(ngModel)]="model.costToOwner"
+        name="model.costToOwner"
+        placeholder="Cost To Owner"
+    />
+    <input
+        [disabled]="controlsDisabled"
+        type="text"
+        class="form-control"
+        [(ngModel)]="model.departmentType"
+        name="model.departmentType"
+        placeholder="Department Type"
+    />
+    <input
+        [disabled]="controlsDisabled"
+        type="text"
+        class="form-control"
+        [(ngModel)]="model.categoryType"
+        name="model.categoryType"
+        placeholder="Category Type"
+    />
+    <input
+        [disabled]="controlsDisabled"
+        type="number"
+        class="form-control"
+        [(ngModel)]="model.servicePrice"
+        name="model.servicePrice"
+        placeholder="Service Price"
+    />
+
+    <div class="col-auto">
+        <button
+            type="button"
+            class="btn btn-outline-warning"
+            [routerLink]="['/services']"
+            routerLinkActive="router-link-active"
+        >
+            Cancel
+        </button>
+        <button *ngIf="!readonly" type="submit" class="btn btn-outline-primary">
+            Submit
+        </button>
+    </div>
+</form>

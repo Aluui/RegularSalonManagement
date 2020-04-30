@@ -21,8 +21,10 @@ app.get('/:id?', function (req, res, next) {
             if (!service.exists) {
                 //console.log('No such document!');
             } else {
+                let serviceObject = service.data();
+                serviceObject.serviceId = service.id;
                 //console.log('service data:', service.data());
-                res.send(service.data());
+                res.send(serviceObject);
             }
         })
         .catch((err) => {
