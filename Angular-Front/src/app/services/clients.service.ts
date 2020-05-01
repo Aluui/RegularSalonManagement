@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Client } from 'src/app/models/client.model';
 
 @Injectable({
     providedIn: 'root',
 })
-export class AddClientService {
+export class ClientsService {
     baseUrl = environment.baseUrl;
-
-    // newClient = new Client();
 
     constructor(private http: HttpClient, private router: Router) {}
 
@@ -74,5 +72,26 @@ export class AddClientService {
                 },
                 (error) => console.log(error)
             );
+    }
+
+    getClients() {
+        const adminId = localStorage.getItem('adminId');
+
+        const params = new HttpParams({
+            fromObject: { adminId },
+        });
+        return this.http.get<any>(this.baseUrl + '/clients/get-client', {
+            params,
+        });
+    }
+
+    getSingleClient(id: string) {
+        const adminId = localStorage.getItem('adminId');
+        const params = new HttpParams({
+            fromObject: { id, adminId },
+        });
+        return this.http.get<any>(this.baseUrl + '/clients/get-single-client', {
+            params,
+        });
     }
 }

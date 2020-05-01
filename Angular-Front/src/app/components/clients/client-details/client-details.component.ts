@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientsService } from 'src/app/services/clients/clients.service';
+import { ClientsService } from 'src/app/services/clients.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';

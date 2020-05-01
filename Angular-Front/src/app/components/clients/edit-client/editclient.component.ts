@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientsService } from 'src/app/services/clients/clients.service';
+import { ClientsService } from 'src/app/services/clients.service';
 import { Observable } from 'rxjs';
 import { Client } from 'src/app/models/client.model';
 import { ActivatedRoute } from '@angular/router';
@@ -15,14 +15,13 @@ export class EditclientComponent implements OnInit {
     id: any;
 
     constructor(
-        private getclientService: ClientsService,
-        private addclientService: AddClientService,
+        private clientService: ClientsService,
         private route: ActivatedRoute
     ) {}
 
     ngOnInit() {
         this.id = this.route.snapshot.paramMap.get('id');
-        this.getclientService
+        this.clientService
             .getSingleClient(this.id)
             .pipe()
             .subscribe((val) => {
@@ -33,6 +32,6 @@ export class EditclientComponent implements OnInit {
     formSubmitted() {
         this.client.getfullName();
 
-        this.addclientService.updateClient(this.client, this.id);
+        this.clientService.updateClient(this.client, this.id);
     }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from 'src/app/models/appointment.model';
 import { Client } from 'src/app/models/client.model';
-import { ClientsService } from 'src/app/services/clients/clients.service';
+import { ClientsService } from 'src/app/services/clients.service';
 import { Observable } from 'rxjs';
 import { ScheduleService } from 'src/app/services/schedule.service';
 
