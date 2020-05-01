@@ -10,7 +10,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { AddClientComponent } from './components/clients/add-client/add-client.component';
-import { GetClientComponent } from './components/clients/get-client/get-client.component';
+import { ListClientsComponent } from './components/clients/list-clients/list-clients.component';
 import { ClientDetailsComponent } from './components/clients/client-details/client-details.component';
 import { AuthGuard } from './guards/auth-guard.service';
 import { HeaderComponent } from './shared/header/header.component';
@@ -34,7 +34,7 @@ import { ServiceFormComponent } from './components/services/service-form/service
         HomeComponent,
         ClientsComponent,
         AddClientComponent,
-        GetClientComponent,
+        ListClientsComponent,
         ClientDetailsComponent,
         HeaderComponent,
         FooterComponent,
@@ -47,10 +47,10 @@ import { ServiceFormComponent } from './components/services/service-form/service
         ServiceDetailComponent,
         DeleteServiceComponent,
         ServiceListComponent,
-        ServiceFormComponent
+        ServiceFormComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [AuthGuard],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

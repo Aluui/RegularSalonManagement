@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { Client } from 'src/app/entity/client';
 
 @Component({
-    selector: 'app-get-client',
-    templateUrl: './get-client.component.html',
-    styleUrls: ['./get-client.component.scss'],
+    selector: 'app-list-clients',
+    templateUrl: './list-clients.component.html',
+    styleUrls: ['./list-clients.component.scss'],
 })
-export class GetClientComponent implements OnInit {
+export class ListClientsComponent implements OnInit {
     clients: Observable<any>;
     // client: Client;
 
