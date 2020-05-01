@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientsService } from 'src/app/services/clients.service';
-import { Observable } from 'rxjs';
 import { Client } from 'src/app/models/client.model';
+import { ClientsService } from 'src/app/services/clients.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-editclient',
-    templateUrl: './editclient.component.html',
-    styleUrls: ['./editclient.component.scss'],
+    selector: 'app-delete-client',
+    templateUrl: './delete-client.component.html',
+    styleUrls: ['./delete-client.component.scss'],
 })
-export class EditclientComponent implements OnInit {
+export class DeleteClientComponent implements OnInit {
     client: Client;
     id: any;
 
@@ -29,8 +28,6 @@ export class EditclientComponent implements OnInit {
     }
 
     formSubmitted() {
-        this.client.getfullName();
-
-        this.clientService.updateClient(this.client, this.id);
+        this.clientService.deleteClient(this.id);
     }
 }

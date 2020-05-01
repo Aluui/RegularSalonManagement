@@ -3,6 +3,7 @@ import { Photo } from './photo.model';
 import { Note } from './note.model';
 
 export class Client {
+    clientId: string;
     firstName: string;
     lastName: string;
     fullName: string;

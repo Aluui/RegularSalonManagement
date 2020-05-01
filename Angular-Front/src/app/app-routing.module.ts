@@ -16,7 +16,7 @@ import { ServiceDetailComponent } from './components/services/service-detail/ser
 import { EditServiceComponent } from './components/services/edit-service/edit-service.component';
 import { DeleteServiceComponent } from './components/services/delete-service/delete-service.component';
 import { EditclientComponent } from './components/clients/edit-client/editclient.component';
-
+import { DeleteClientComponent } from './components/clients/delete-client/delete-client.component';
 
 const routes: Routes = [
     {
@@ -54,6 +54,11 @@ const routes: Routes = [
     {
         path: 'clients/client-edit/:id',
         component: EditclientComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'clients/client-delete/:id',
+        component: DeleteClientComponent,
         canActivate: [AuthGuard],
     },
     {

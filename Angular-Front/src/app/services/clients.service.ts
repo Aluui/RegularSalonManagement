@@ -55,7 +55,7 @@ export class ClientsService {
             'application/json'
         );
 
-        this.http
+        return this.http
             .post(this.baseUrl + '/clients/edit-client', clientData, {
                 headers,
             })
@@ -63,11 +63,11 @@ export class ClientsService {
                 (result) => {
                     // console.log(result);
                     if (result === true) {
-                        console.log('Client added');
-                        this.router.navigate(['/home']);
+                        console.log('Client updated');
+                        this.router.navigate(['/clients']);
                     } else {
                         console.log('Client not added');
-                        this.router.navigate(['/add-client']);
+                        this.router.navigate(['/client-edit/' + id]);
                     }
                 },
                 (error) => console.log(error)
@@ -93,5 +93,34 @@ export class ClientsService {
         return this.http.get<any>(this.baseUrl + '/clients/get-single-client', {
             params,
         });
+    }
+
+    deleteClient(id: string) {
+        const clientData = {
+            id,
+        };
+
+        const headers = new HttpHeaders().set(
+            'Content-Type',
+            'application/json'
+        );
+
+        return this.http
+            .post(this.baseUrl + '/clients/delete-client', clientData, {
+                headers,
+            })
+            .subscribe(
+                (result) => {
+                    // console.log(result);
+                    if (result === true) {
+                        console.log('Client Deleted');
+                        this.router.navigate(['/clients']);
+                    } else {
+                        console.log('Client not deleted');
+                        this.router.navigate(['/client-delete/id:' + id]);
+                    }
+                },
+                (error) => console.log(error)
+            );
     }
 }

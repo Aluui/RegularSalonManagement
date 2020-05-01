@@ -6,20 +6,16 @@ const routeNames = require('../route-names').RouteNames;
 let db = admin.firestore();
 
 app.post('/', function (req, res, next) {
-    let client = req.body.client;
-    let documentId = req.body.id;
-    // let adminId = req.body.adminId;
-    // console.log(client, adminId);
-
+    let clientId = req.body.id;
     let docRef = db
         .collection(routeNames.CLIENTS)
-        .doc(documentId)
-        .set(client)
+        .doc(clientId)
+        .delete()
         .then(() => {
             res.send(true);
-            console.log('Document with ID ' + documentId + ' updated!');
+            console.log('Document deleted');
         })
-        .catch((error) => console.log('Error adding document: ', error));
+        .catch((error) => console.log('Error deleting document: ', error));
 });
 
 module.exports = app;
