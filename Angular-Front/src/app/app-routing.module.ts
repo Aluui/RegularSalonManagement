@@ -10,11 +10,6 @@ import { AuthGuard } from './guards/auth-guard.service';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ViewScheduleComponent } from './components/schedule/view-schedule/view-schedule.component';
 import { AddAppointmentComponent } from './components/schedule/add-appointment/add-appointment.component';
-import { NewServiceComponent } from './components/services/new-service/new-service.component';
-import { ServiceListComponent } from './components/services/service-list/service-list.component';
-import { ServiceDetailComponent } from './components/services/service-detail/service-detail.component';
-import { EditServiceComponent } from './components/services/edit-service/edit-service.component';
-import { DeleteServiceComponent } from './components/services/delete-service/delete-service.component';
 import { EditclientComponent } from './components/clients/edit-client/editclient.component';
 
 const routes: Routes = [
