@@ -7,25 +7,27 @@ let db = admin.firestore();
 //Get all the clients from the db
 app.get('/', function (req, res, next) {
     let users = [];
-    let clientUser = {};
+    let serviceObject = {};
     const adminId = req.query.adminId;
 
+    // console.log(adminId);
+
     let dbRef = db
-        .collection(routeNames.CLIENTS)
+        .collection(routeNames.SERVICES)
         .where('adminId', '==', adminId);
 
     dbRef
         .get()
         .then((doc) => {
-            doc.forEach((client) => {
-                clientUser = client.data();
-                clientUser.clientId = client.id;
-                users.push(clientUser);
+            doc.forEach((service) => {
+                serviceObject = service.data();
+                serviceObject.serviceId = service.id;
+                users.push(serviceObject);
             });
             res.send(users);
         })
         .catch((err) => {
-            console.log('Error getting clients: ', err);
+            console.log('Error getting services: ', err);
         });
 });
 
