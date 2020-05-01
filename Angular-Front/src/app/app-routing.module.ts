@@ -15,6 +15,8 @@ import { ServiceListComponent } from './components/services/service-list/service
 import { ServiceDetailComponent } from './components/services/service-detail/service-detail.component';
 import { EditServiceComponent } from './components/services/edit-service/edit-service.component';
 import { DeleteServiceComponent } from './components/services/delete-service/delete-service.component';
+import { EditclientComponent } from './components/clients/edit-client/editclient.component';
+
 
 const routes: Routes = [
     {
@@ -47,6 +49,11 @@ const routes: Routes = [
     {
         path: 'clients/client/:id',
         component: ClientDetailsComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'clients/client-edit/:id',
+        component: EditclientComponent,
         canActivate: [AuthGuard],
     },
     {

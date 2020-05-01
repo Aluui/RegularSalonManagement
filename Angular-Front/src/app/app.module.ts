@@ -15,7 +15,7 @@ import { ClientDetailsComponent } from './components/clients/client-details/clie
 import { AuthGuard } from './guards/auth-guard.service';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { EditclientComponent } from './components/clients/editclient/editclient.component';
+import { EditclientComponent } from './components/clients/edit-client/editclient.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { AddAppointmentComponent } from './components/schedule/add-appointment/add-appointment.component';
 import { ViewScheduleComponent } from './components/schedule/view-schedule/view-schedule.component';

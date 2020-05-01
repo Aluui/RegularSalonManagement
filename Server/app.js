@@ -5,6 +5,7 @@ const signoutRouter = require('./routes/signout');
 const signupRouter = require('./routes/signup');
 
 const addclientRouter = require('./routes/clients/add-client');
+const editClientRouter = require('./routes/clients/edit-client');
 const getclientsRouter = require('./routes/clients/get-client');
 const getsingleclientRouter = require('./routes/clients/get-single-client');
 
@@ -44,6 +45,7 @@ app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/signout', signoutRouter);
 app.use('/clients/add-client', addclientRouter);
+app.use('/clients/edit-client', editClientRouter);
 app.use('/clients/get-client', getclientsRouter);
 app.use('/clients/get-single-client', getsingleclientRouter);
 
