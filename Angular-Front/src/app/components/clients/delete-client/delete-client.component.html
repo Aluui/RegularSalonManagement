@@ -5,6 +5,7 @@
         [(ngModel)]="client.firstName"
         name="client.firstName"
         placeholder="First Name"
+        readonly
     />
     <input
         type="text"
@@ -12,6 +13,7 @@
         [(ngModel)]="client.lastName"
         name="client.lastName"
         placeholder="Last Name"
+        readonly
     />
     <input
         type="text"
@@ -19,6 +21,7 @@
         [(ngModel)]="client.birthday"
         name="client.birthday"
         placeholder="(MM/DD/YYYY)"
+        readonly
     />
     <input
         type="text"
@@ -26,6 +29,7 @@
         [(ngModel)]="client.phoneNumber"
         name="client.phoneNumber"
         placeholder="format: 222-333-4444"
+        readonly
     />
     <div class="col-auto">
         <button
@@ -36,6 +40,6 @@
         >
             Cancel
         </button>
-        <button type="submit" class="btn btn-outline-primary">Submit</button>
+        <button type="submit" class="btn btn-outline-primary">Delete</button>
     </div>
 </form>

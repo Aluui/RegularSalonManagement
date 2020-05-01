@@ -20,6 +20,10 @@
             [routerLink]="['client-edit', client.clientId]"
             routerLinkActive=""
         ></i>
-        <i class="fa fa-trash btn btn-outline-danger"></i>
+        <i
+            class="fa fa-trash btn btn-outline-danger"
+            [routerLink]="['client-delete', client.clientId]"
+            routerLinkActive=""
+        ></i>
     </h4>
 </div>
