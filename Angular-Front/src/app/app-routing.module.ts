@@ -7,6 +7,9 @@ import { ClientsComponent } from "./components/clients/clients.component";
 import { AddClientComponent } from "./components/clients/add-client/add-client.component";
 import { ClientDetailsComponent } from "./components/clients/client-details/client-details.component";
 import { AuthGuard } from "./guards/auth-guard.service";
+import { ListProductsComponent } from './components/products/list-products/list-products.component';
+import { AddProductComponent } from './components/products/add-product/add-product.component';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -35,6 +38,21 @@ const routes: Routes = [
   {
     path: "clients/client/:id",
     component: ClientDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "products",
+    component: ListProductsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "products/add-product",
+    component: AddProductComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "products/product/:id",
+    component: ProductDetailsComponent,
     canActivate: [AuthGuard]
   }
 ];

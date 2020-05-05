@@ -16,6 +16,9 @@ import { AuthGuard } from "./guards/auth-guard.service";
 import { HeaderComponent } from "./shared/header/header.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 import { EditclientComponent } from './components/clients/editclient/editclient.component';
+import { AddProductComponent } from './components/products/add-product/add-product.component';
+import { ListProductsComponent } from './components/products/list-products/list-products.component';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { EditclientComponent } from './components/clients/editclient/editclient.
     ClientDetailsComponent,
     HeaderComponent,
     FooterComponent,
-    EditclientComponent
+    EditclientComponent,
+    AddProductComponent,
+    ListProductsComponent,
+    ProductDetailsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [AuthGuard],
