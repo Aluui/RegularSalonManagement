@@ -1,12 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-clients",
-  templateUrl: "./clients.component.html",
-  styleUrls: ["./clients.component.scss"]
+    selector: 'app-clients',
+    templateUrl: './clients.component.html',
+    styleUrls: ['./clients.component.scss'],
 })
 export class ClientsComponent implements OnInit {
-  constructor() {}
+    constructor() {}
+    userId: string;
 
-  ngOnInit() {}
+    ngOnInit() {
+        this.userId = localStorage.getItem('userId');
+    }
 }

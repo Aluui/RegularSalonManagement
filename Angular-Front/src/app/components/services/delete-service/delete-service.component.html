@@ -1,0 +1,10 @@
+<h2>Delete Service</h2>
+
+<app-service-form
+    *ngIf="serviceId; else loading"
+    [serviceId]="serviceId"
+    [controlsDisabled]="true"
+    (onSubmit)="formSubmitted($event)"
+></app-service-form>
+
+<ng-template #loading>Loading...</ng-template>
