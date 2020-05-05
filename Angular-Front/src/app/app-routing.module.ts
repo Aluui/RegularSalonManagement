@@ -17,6 +17,9 @@ import { EditServiceComponent } from './components/services/edit-service/edit-se
 import { DeleteServiceComponent } from './components/services/delete-service/delete-service.component';
 import { EditclientComponent } from './components/clients/edit-client/editclient.component';
 import { DeleteClientComponent } from './components/clients/delete-client/delete-client.component';
+import { ListProductsComponent } from './components/products/list-products/list-products.component';
+import { AddProductComponent } from './components/products/add-product/add-product.component';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 
 const routes: Routes = [
     {
@@ -96,6 +99,21 @@ const routes: Routes = [
         component: ServiceDetailComponent,
         canActivate: [AuthGuard],
     },
+    {
+      path: "products",
+      component: ListProductsComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: "products/add-product",
+      component: AddProductComponent,
+      canActivate: [AuthGuard]
+    },
+    {
+      path: "products/product/:id",
+      component: ProductDetailsComponent,
+      canActivate: [AuthGuard]
+    }
 ];
 
 @NgModule({

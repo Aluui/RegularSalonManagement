@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -26,6 +25,10 @@ import { DeleteServiceComponent } from './components/services/delete-service/del
 import { ServiceListComponent } from './components/services/service-list/service-list.component';
 import { ServiceFormComponent } from './components/services/service-form/service-form.component';
 import { DeleteClientComponent } from './components/clients/delete-client/delete-client.component';
+import { AddProductComponent } from './components/products/add-product/add-product.component';
+import { ListProductsComponent } from './components/products/list-products/list-products.component';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+
 
 @NgModule({
     declarations: [
@@ -40,6 +43,9 @@ import { DeleteClientComponent } from './components/clients/delete-client/delete
         HeaderComponent,
         FooterComponent,
         EditclientComponent,
+        AddProductComponent,
+        ListProductsComponent,
+        ProductDetailsComponent,
         ForgotPasswordComponent,
         AddAppointmentComponent,
         ViewScheduleComponent,
