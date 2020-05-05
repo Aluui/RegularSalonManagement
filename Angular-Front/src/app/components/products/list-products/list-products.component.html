@@ -1,1 +1,31 @@
+<nav>
+  <ul class="nav">
+    <li class="nav-item">
+      <i
+      class="fa fa-plus btn btn-primary"
+      [routerLink]="['/products/add-product']"
+      routerLinkActive=""
+      ></i>
+    </li>
+  </ul>
+</nav>
+
 <p>list-products works!</p>
+<div *ngFor="let product of products | async">
+  <h4>
+    {{ product.name }} - {{product.price}}
+    <i
+      class="fa fa-user btn btn-outline-info"
+      [routerLink]="['product', product.productId]"
+      routerLinkActive=""
+    ></i>
+    <i class="fa fa-pencil btn btn-outline-warning"></i>
+    <i class="fa fa-trash btn btn-outline-danger"></i>
+  </h4>
+  <div>{{product.description}}</div>
+  <br>
+</div>
+
+<!-- <app-list-products></app-list-products> -->
+
+
