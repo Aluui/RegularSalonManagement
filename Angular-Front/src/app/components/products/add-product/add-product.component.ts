@@ -8,7 +8,7 @@ import { ProductService } from 'src/app/services/product-service/product.service
 })
 export class AddProductComponent implements OnInit {
 
-  id: string;
+  storeId: string;
   name: string;
   sku: string;
   price: string;
@@ -23,7 +23,7 @@ export class AddProductComponent implements OnInit {
   formSubmitted() {
 
     this.productService.addProduct(
-      this.id,
+      this.storeId,
       this.name,
       this.sku,
       this.price,
