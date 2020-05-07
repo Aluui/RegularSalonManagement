@@ -1,35 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product-service/product.service';
+import { Router } from '@angular/router';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.scss']
+    selector: 'app-add-product',
+    templateUrl: './add-product.component.html',
+    styleUrls: ['./add-product.component.scss'],
 })
 export class AddProductComponent implements OnInit {
+    constructor(
+        private productService: ProductService,
+        private router: Router
+    ) {}
 
-  storeId: string;
-  name: string;
-  sku: string;
-  price: string;
-  description: string;
-  imageUrl: string;
+    ngOnInit() {}
 
-  constructor(private productService: ProductService) { }
+    formSubmitted(product: Product) {
+        this.productService.addProduct(product).subscribe((val) => {
+            this.router.navigateByUrl('/products');
+        });
+        // this.productService.addProduct
 
-  ngOnInit() {
-  }
-
-  formSubmitted() {
-
-    this.productService.addProduct(
-      this.storeId,
-      this.name,
-      this.sku,
-      this.price,
-      this.description,
-      this.imageUrl
-    );
-  }
-
+        // );
+    }
 }

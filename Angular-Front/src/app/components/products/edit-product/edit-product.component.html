@@ -1,10 +1,9 @@
-<h2>View Product</h2>
+<h2>Edit Product</h2>
 
 <app-product-form
     *ngIf="productId; else loading"
     [productId]="productId"
-    [readonly]="true"
-    [controlsDisabled]="true"
+    (onSubmit)="formSubmitted($event)"
 >
 </app-product-form>
 

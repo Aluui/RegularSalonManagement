@@ -16,6 +16,12 @@ const deleteserviceRouter = require('./routes/services/delete-service');
 const getservicesRouter = require('./routes/services/get-services');
 const getsingleserviceRouter = require('./routes/services/get-single-service');
 
+const addproductRouter = require('./routes/products/add-product');
+const updateproductRouter = require('./routes/products/update-product');
+const deleteproductRouter = require('./routes/products/delete-product');
+const getproductsRouter = require('./routes/products/get-products');
+const getsingleproductRouter = require('./routes/products/get-single-product');
+
 const forgotpasswordRouter = require('./routes/forgot-password');
 const addAppointmentRouter = require('./routes/appointments/add-appointment');
 const getAppointmentsRouter = require('./routes/appointments/get-appointments');
@@ -56,6 +62,12 @@ app.use('/services/update-service', updateserviceRouter);
 app.use('/services/delete-service', deleteserviceRouter);
 app.use('/services/get-service', getservicesRouter);
 app.use('/services/get-single-service', getsingleserviceRouter);
+
+app.use('/products/add-product', addproductRouter);
+app.use('/products/update-product', updateproductRouter);
+app.use('/products/delete-product', deleteproductRouter);
+app.use('/products/get-products', getproductsRouter);
+app.use('/products/get-single-product', getsingleproductRouter);
 
 app.use('/forgot-password', forgotpasswordRouter);
 app.use('/add-appointment', addAppointmentRouter);

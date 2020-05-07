@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product-service/product.service';
-import { Observable, of, from } from "rxjs";
-import { Product } from 'src/app/entity/product';
+import { Observable, of, from } from 'rxjs';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
-  selector: 'app-list-products',
-  templateUrl: './list-products.component.html',
-  styleUrls: ['./list-products.component.scss']
+    selector: 'app-list-products',
+    templateUrl: './list-products.component.html',
+    styleUrls: ['./list-products.component.scss'],
 })
 export class ListProductsComponent implements OnInit {
-  products: Observable<any>;
-  product: Product;
+    products: Observable<Product>;
 
-  constructor(private productService: ProductService) {
+    constructor(private productService: ProductService) {}
 
-  }
-
-  ngOnInit() {
-    this.products = this.productService.getProducts();
-  }
+    ngOnInit() {
+        this.products = this.productService.getProducts();
+        // console.log(this.services);
+    }
 }

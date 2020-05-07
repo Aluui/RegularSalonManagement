@@ -28,6 +28,9 @@ import { DeleteClientComponent } from './components/clients/delete-client/delete
 import { AddProductComponent } from './components/products/add-product/add-product.component';
 import { ListProductsComponent } from './components/products/list-products/list-products.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+import { ProductFormComponent } from './components/products/product-form/product-form.component';
+import { DeleteProductComponent } from './components/products/delete-product/delete-product.component';
+import { EditProductComponent } from './components/products/edit-product/edit-product.component';
 
 
 @NgModule({
@@ -56,6 +59,9 @@ import { ProductDetailsComponent } from './components/products/product-details/p
         ServiceListComponent,
         ServiceFormComponent,
         DeleteClientComponent,
+        ProductFormComponent,
+        DeleteProductComponent,
+        EditProductComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
     providers: [AuthGuard],

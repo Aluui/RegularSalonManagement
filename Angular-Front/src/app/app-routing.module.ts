@@ -20,6 +20,8 @@ import { DeleteClientComponent } from './components/clients/delete-client/delete
 import { ListProductsComponent } from './components/products/list-products/list-products.component';
 import { AddProductComponent } from './components/products/add-product/add-product.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+import { DeleteProductComponent } from './components/products/delete-product/delete-product.component';
+import { EditProductComponent } from './components/products/edit-product/edit-product.component';
 
 const routes: Routes = [
     {
@@ -100,20 +102,30 @@ const routes: Routes = [
         canActivate: [AuthGuard],
     },
     {
-      path: "products",
-      component: ListProductsComponent,
-      canActivate: [AuthGuard]
+        path: 'products',
+        component: ListProductsComponent,
+        canActivate: [AuthGuard],
     },
     {
-      path: "products/add-product",
-      component: AddProductComponent,
-      canActivate: [AuthGuard]
+        path: 'products/add-product',
+        component: AddProductComponent,
+        canActivate: [AuthGuard],
     },
     {
-      path: "products/product/:id",
-      component: ProductDetailsComponent,
-      canActivate: [AuthGuard]
-    }
+        path: 'products/edit-product/:id',
+        component: EditProductComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'products/delete-product/:id',
+        component: DeleteProductComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'products/product/:id',
+        component: ProductDetailsComponent,
+        canActivate: [AuthGuard],
+    },
 ];
 
 @NgModule({

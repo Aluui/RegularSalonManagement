@@ -1,11 +1,10 @@
-<h2>View Product</h2>
+<h2>Delete Product</h2>
 
 <app-product-form
     *ngIf="productId; else loading"
     [productId]="productId"
-    [readonly]="true"
     [controlsDisabled]="true"
->
-</app-product-form>
+    (onSubmit)="formSubmitted($event)"
+></app-product-form>
 
 <ng-template #loading>Loading...</ng-template>
