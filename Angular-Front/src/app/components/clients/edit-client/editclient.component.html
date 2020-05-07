@@ -1,4 +1,8 @@
-<form (submit)="formSubmitted()" class="col-md-5 form-group">
+<form
+    (submit)="formSubmitted()"
+    *ngIf="client; else loading"
+    class="col-md-5 form-group"
+>
     <input
         type="text"
         class="form-control"
@@ -39,3 +43,5 @@
         <button type="submit" class="btn btn-outline-primary">Submit</button>
     </div>
 </form>
+
+<ng-template #loading>Loading...</ng-template>

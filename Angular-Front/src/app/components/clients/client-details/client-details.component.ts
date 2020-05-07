@@ -29,11 +29,5 @@ export class ClientDetailsComponent implements OnInit {
             .subscribe((val) => {
                 this.client = val;
             });
-        // .subscribe(client => (this.client = client));
-        // this.client = this.route.params.pipe(
-        //   switchMap((params: ParamMap) =>
-        //     this.getClientService.getClient(params.get('id'))
-        //   )
-        // );
     }
 }

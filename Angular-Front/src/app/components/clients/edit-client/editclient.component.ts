@@ -29,8 +29,7 @@ export class EditclientComponent implements OnInit {
     }
 
     formSubmitted() {
-        this.client.getfullName();
-
+        // this.client.fullName = this.client.getfullName();
         this.clientService.updateClient(this.client, this.id);
     }
 }

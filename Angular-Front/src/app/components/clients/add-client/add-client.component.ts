@@ -19,7 +19,7 @@ export class AddClientComponent implements OnInit {
     ngOnInit() {}
 
     formSubmitted() {
-        this.newClient.getfullName();
+        // this.newClient.getfullName();
         // console.log(this.newClient);
         // console.log(this.firstName, this.lastName, this.DOB, this.phoneNumber);
         this.addClientService.addClient(this.newClient);
