@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/services/product-service/product.service';
+import { ProductService } from 'src/app/services/product.service';
 import { Observable, of, from } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 
