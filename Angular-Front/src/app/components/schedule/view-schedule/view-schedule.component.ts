@@ -20,7 +20,12 @@ export class ViewScheduleComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.appointments = this.appt.getAppts();
+        this.appt
+            .getAppts()
+            .pipe()
+            .subscribe((val) => {
+                this.appointments = val;
+            });
 
         // this.client = this.getClient.getSingleClient(this.appointments.c)
     }

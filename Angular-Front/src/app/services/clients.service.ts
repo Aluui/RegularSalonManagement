@@ -90,9 +90,12 @@ export class ClientsService {
         const params = new HttpParams({
             fromObject: { id, adminId },
         });
-        return this.http.get<any>(this.baseUrl + '/clients/get-single-client', {
-            params,
-        });
+        return this.http.get<Client>(
+            this.baseUrl + '/clients/get-single-client',
+            {
+                params,
+            }
+        );
     }
 
     deleteClient(id: string) {

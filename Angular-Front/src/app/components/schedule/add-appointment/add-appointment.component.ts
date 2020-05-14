@@ -4,6 +4,7 @@ import { Client } from 'src/app/models/client.model';
 import { ClientsService } from 'src/app/services/clients.service';
 import { Observable } from 'rxjs';
 import { ScheduleService } from 'src/app/services/schedule.service';
+import { take, filter } from 'rxjs/operators';
 
 @Component({
     selector: 'app-add-appointment',
@@ -29,6 +30,7 @@ export class AddAppointmentComponent implements OnInit {
     }
 
     formSubmitted() {
+      // this.appointment.client = this.getClientService.getSingleClient(this.appointment.clientId);
         // this.appointment.client = this.client;
         // console.log(this.appointment);
         this.addApptService.addAppointment(this.appointment);
